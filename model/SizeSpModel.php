@@ -48,16 +48,28 @@ class SizeSpModel extends Database
         return $this->connect->lastInsertId();
     }
 
+    // public function SizeSp__Get_By_Id($masp)
+    // {
+    //     $obj = $this->connect->prepare("SELECT size_sp.masp, size_sp.masize, size.tensize
+    //     FROM size_sp
+    //     JOIN size ON size_sp.masize = size.masize
+    //     WHERE size_sp.masize = ?
+    //     GROUP BY size_sp.masize 
+    //     ORDER BY size_sp.id DESC");
+    //     $obj->setFetchMode(PDO::FETCH_OBJ);
+    //     $obj->execute(array($masp));
+    //     return $obj->fetch();
+    // }
     public function SizeSp__Get_By_Id($masp)
     {
         $obj = $this->connect->prepare("SELECT size_sp.masp, size_sp.masize, size.tensize
-        FROM size_sp
-        JOIN size ON size_sp.masize = size.masize
-        WHERE size_sp.masize = ?
-        GROUP BY size_sp.masize 
-        ORDER BY size_sp.id DESC");
+    FROM size_sp
+    JOIN size ON size_sp.masize = size.masize
+    WHERE size_sp.masp = ? 
+    ORDER BY size_sp.id DESC");
         $obj->setFetchMode(PDO::FETCH_OBJ);
         $obj->execute(array($masp));
         return $obj->fetch();
     }
+
 }

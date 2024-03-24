@@ -12,12 +12,11 @@ if (isset($_GET['req'])) {
             $sodienthoai = $_POST['sodienthoai'];
             $diachi = $_POST['diachi'];
             $email = $_POST['email'];
-            $username = $_POST['username'];
             // $password = trim($_POST['password']);
             $password = $_POST['password'];
             $trangthai = $_POST['trangthai'];
             if ($kh->KhachHang__Check_Email($email)) {
-                $res += $kh->KhachHang__Add($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $username, $password, $trangthai);
+                $res += $kh->KhachHang__Add($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai);
             }
             if ($res != false) {
                 header('location: ../../index.php?pages=khach-hang&msg=success');
@@ -30,7 +29,6 @@ if (isset($_GET['req'])) {
             $res = 0;
             $makh = $_POST['makh'];
             $tenkh = $_POST['tenkh'];
-            $username = $_POST['username'];
             $gioitinh = $_POST['gioitinh'];
             $ngaysinh = $_POST['ngaysinh'];
             $sodienthoai = $_POST['sodienthoai'];
@@ -52,9 +50,6 @@ if (isset($_GET['req'])) {
                     header('location: ../../index.php?pages=khach-hang&msg=error');
                 }
             }
-
-            // $password_old = trim($_POST['password_old']);
-            // $password_new = trim($_POST['password_new']);
             $password_old = $_POST['password_old'];
             $password_new = $_POST['password_new'];
 
@@ -64,7 +59,7 @@ if (isset($_GET['req'])) {
                 $password = $password_new;
             }
 
-            echo $res += $kh->KhachHang__Update($makh, $tenkh, $username, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai);
+            echo $res += $kh->KhachHang__Update($makh, $tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai);
             if ($res != false) {
                 header('location: ../../index.php?pages=khach-hang&msg=success');
             } else {

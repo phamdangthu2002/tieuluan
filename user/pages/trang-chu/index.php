@@ -5,10 +5,10 @@ require_once '../model/CommonModel.php';
 $sp = new SanPhamModel();
 $anhSp = new AnhSpModel();
 $cm = new CommonModel();
-$sp__Get_Top_Updated_5 = $sp->SanPham__Get_Top_Updated(5);
-$sp__Get_Top_Updated_8 = $sp->SanPham__Get_Top_Updated(8);
+$sp__Get_Top_Updated_5 = $sp->SanPham__Get_Top_Updated(6);
+$sp__Get_Top_Updated_8 = $sp->SanPham__Get_Top_Updated(16);
 $sp__Get_Top_Sale = $sp->SanPham__Get_Top_Sale();
-$sp__Get_Top_Random = $sp->SanPham__Get_Top_Random(5);
+$sp__Get_Top_Random = $sp->SanPham__Get_Top_Random(6);
 
 $top = 0;
 ?>
@@ -179,7 +179,7 @@ $top = 0;
             <?php if (count($sp__Get_Top_Updated_8) > 0): ?>
                 <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
                 <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="cardt mb-5">
                             <div class="manga-container">
                                 <div class="manga-thumbnail">
@@ -189,17 +189,18 @@ $top = 0;
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="cardt-body">
-                            <h5 class="cardt-title">
-                                <div class="manga-title color-1">
-                                    <?= $item->tensp ?>
-                                </div>
-                            </h5>
-                            <p class="cardt-text">
-                            </p>
-                            <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
-                                class="btn btn-primary">Mua Ngay</a>
+                            <div class="cardt-body">
+                                <h5 class="card-title">
+                                    <div class="manga-title color-1">
+                                        <?= $item->tensp ?>
+                                    </div>
+                                </h5>
+                                <p class="cardt-text">
+
+                                </p>
+                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
+                                    class="btn btn-primary">Mua Ngay</a>
+                            </div>
                         </div>
                     </div>
                 <?php else: ?>
@@ -218,7 +219,6 @@ $top = 0;
             <?php endif ?>
         <?php endforeach; ?>
     </div>
-
 </div>
 
 

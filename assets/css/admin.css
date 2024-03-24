@@ -28,6 +28,22 @@ label {
   margin: 5px 0;
   font-weight: bold;
 }
+/* .form-check label {
+  display: block;
+  margin: 5px 0;
+  font-weight: bold;
+  border: rgb(41, 37, 37) solid 1px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.form-check label:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #0db315;
+  transform: scale(1.2);
+} */
+
 
 .text-title {
   border-left: 5px solid #0782c1;
@@ -215,4 +231,11 @@ div#anhsp_preview {
 @media (max-width: 991px) {
 }
 @media (max-width: 575px) {
+}
+
+
+.size-option.selected {
+  background-color: #0db315;
+  color: #fff;
+  border-color: #3498db;
 }

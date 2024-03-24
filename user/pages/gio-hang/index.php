@@ -59,7 +59,7 @@ $chiTietGioHang__Get_By_Id_Gh = $ctgh->ChiTietGioHang__Get_By_Id_GH(isset ($gioH
                                                                 </div>
                                                                 <div class="text-line">
                                                                     Size :
-                                                                    <?= $szsp->SizeSp__Get_By_Id($item->masize)->tensize ?>
+                                                                    <?= $szsp->SizeSp__Get_By_Id($item->masp)->tensize ?>
                                                                 </div>
                                                                 <p class="small mb-0 text-small"
                                                                     id="gh-dg_<?= $item->mactgh ?>">

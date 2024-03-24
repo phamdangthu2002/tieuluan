@@ -1,33 +1,22 @@
 <?php
 require_once '../../../model/KhachHangModel.php';
-require_once '../../../model/UserModel.php';
 $kh = new KhachHangModel();
-$user = new UserModel();
 $makh = $_POST['makh'];
 // Lấy thông tin nhân viên từ bảng khachhang
 $khachHang__Get_By_Id = $kh->KhachHang__Get_By_Id($makh);
-// Kiểm tra nếu có thông tin khách hàng
-if ($khachHang__Get_By_Id) {
-    // Lấy mauser từ kết quả của KhachHang__Get_By_Id
-    $mauser = $khachHang__Get_By_Id->mauser;
-    // Lấy thông tin user từ bảng users bằng mauser
-    $user__Get_By_Id = $user->User__Get_By_Id($mauser);
-}
 ?>
 
 <div class="main-update">
     <h3 class="section-title">Cập nhật khách hàng</h3>
     <form class="form-group" action="pages/khach-hang/action.php?req=update" method="post">
         <input type="hidden" class="form-control" id="makh" name="makh" required value="<?= $khachHang__Get_By_Id->makh ?>">
-        <input type="hidden" class="form-control" id="password_old" name="password_old" value="<?= $user__Get_By_Id->password ?>">
+        <input type="hidden" class="form-control" id="password_old" name="password_old" value="<?= $khachHang__Get_By_Id->password ?>">
         <input type="hidden" class="form-control" id="email_old" name="email_old" required value="<?= $khachHang__Get_By_Id->email ?>">
 
 
         <div class="col">
             <label for="tenkh" class="form-label">Tên khách hàng</label>
             <input type="text" class="form-control" id="tenkh" name="tenkh" required value="<?= $khachHang__Get_By_Id->tenkh ?>">
-            <label for="tennv" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required value="<?= $user__Get_By_Id->username ?>">
         </div>
         <div class="row">
             <div class="col">
@@ -60,8 +49,8 @@ if ($khachHang__Get_By_Id) {
             <div class="col">
                 <label for="trangthai" class="form-label">Trạng thái</label>
                 <select class="form-select " aria-label=".trangthai" id="trangthai" name="trangthai">
-                    <option value="1"<?= $user__Get_By_Id->trangthai == 1 ? 'selected' : '' ?>>Hoạt động</option>
-                    <option value="0"<?= $user__Get_By_Id->trangthai == 0 ? 'selected' : '' ?>>Tạm khóa</option>
+                    <option value="1"<?= $khachHang__Get_By_Id->trangthai == 1 ? 'selected' : '' ?>>Hoạt động</option>
+                    <option value="0"<?= $khachHang__Get_By_Id->trangthai == 0 ? 'selected' : '' ?>>Tạm khóa</option>
                 </select>
             </div>
         </div>

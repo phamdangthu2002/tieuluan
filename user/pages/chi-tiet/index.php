@@ -111,6 +111,54 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
 
                                 </div>
                             </div>
+                        <?php elseif ($sp__Get_By_Id->maloai == '3'): ?>
+                            <h5 class="text-normal">Chọn kích thước:</h5>
+                            <div>
+                                <!-- code chọn size (S M L X XX XXX) -->
+                                <div>
+                                    <label for="sizeM" class="size-option" onclick="selectSize('M')">
+                                        <input type="radio" id="sizeM" name="size" value="M">
+                                        M
+                                    </label>
+
+                                    <label for="sizeL" class="size-option" onclick="selectSize('L')">
+                                        <input type="radio" id="sizeL" name="size" value="L">
+                                        L
+                                    </label>
+                                </div>
+                            </div>
+                        <?php elseif ($sp__Get_By_Id->maloai == '4'): ?>
+                            <h5 class="text-normal">Chọn kích thước:</h5>
+                            <div>
+                                <!-- code chọn size (S M L X XX XXX) -->
+                                <div>
+                                    <label for="sizeA" class="size-option" onclick="selectSize('A')">
+                                        <input type="radio" id="sizeA" name="size" value="A">
+                                        1m
+                                    </label>
+
+                                    <label for="sizeB" class="size-option" onclick="selectSize('B')">
+                                        <input type="radio" id="sizeM" name="size" value="B">
+                                        1,2m
+                                    </label>
+                                </div>
+                            </div>
+                        <?php elseif ($sp__Get_By_Id->maloai == '5'): ?>
+                            <h5 class="text-normal">Chọn kích thước:</h5>
+                            <div>
+                                <!-- code chọn size (S M L X XX XXX) -->
+                                <div>
+                                    <label for="sizeLon" class="size-option" onclick="selectSize('Lon')">
+                                        <input type="radio" id="sizeLon" name="size" value="Lon">
+                                        Lớn
+                                    </label>
+
+                                    <label for="sizeNho" class="size-option" onclick="selectSize('Nho')">
+                                        <input type="radio" id="sizeNho" name="size" value="Nho">
+                                        Nhỏ
+                                    </label>
+                                </div>
+                            </div>
                         <?php elseif ($sp__Get_By_Id->maloai == '6'): ?>
                             <h5 class="text-normal">Chọn kích thước:</h5>
                             <div>
@@ -124,7 +172,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                                         <input type="radio" id="size7" name="size" value="7">
                                         7
                                     </label>
-
+                                    
                                     <label for="size8" class="size-option" onclick="selectSize('8')">
                                         <input type="radio" id="size8" name="size" value="8">
                                         8
@@ -148,7 +196,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                             <div class="tab-group-1">
                                 <div class="sp-thich">
                                     <?php if (isset ($_SESSION['user'])): ?>
-                                        <?php if ($sp__Get_By_Id->maloai == '1'|| $sp__Get_By_Id->maloai == '2' || $sp__Get_By_Id->maloai == '3' || $sp__Get_By_Id->maloai == '6'): ?>
+                                        <?php if ($sp__Get_By_Id->maloai == '1' || $sp__Get_By_Id->maloai == '2' || $sp__Get_By_Id->maloai == '3' || $sp__Get_By_Id->maloai == '4'|| $sp__Get_By_Id->maloai == '5' || $sp__Get_By_Id->maloai == '6'): ?>
                                             <div class="btn btn-sm color-0 background-7" onclick="addCartSize('<?= $masp ?>')">
                                                 <i class="bx bx-cart"></i> Mua ngay
                                             </div>
@@ -285,28 +333,34 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                 masize = '9';
                 break;
             case 'XL':
-                masize = '11';
+                masize = '10';
                 break;
             case '6':
-                masize = '12';
+                masize = '11';
                 break;
             case '7':
-                masize = '13';
+                masize = '12';
                 break;
             case '8':
-                masize = '14';
+                masize = '13';
                 break;
             case '9':
-                masize = '15';
+                masize = '14';
                 break;
             case '10':
+                masize = '15';
+                break;
+            case 'A':
                 masize = '16';
                 break;
-            case 'a':
-                masize = '16';
-                break;
-            case 'b':
+            case 'B':
                 masize = '17';
+                break;
+            case 'Lon':
+                masize = '19';
+                break;
+            case 'Nho':
+                masize = '20';
                 break;
             default:
                 masize = '18'; // Gán mặc định giá trị cho trường hợp không xác định

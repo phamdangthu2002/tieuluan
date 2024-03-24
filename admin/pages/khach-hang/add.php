@@ -4,9 +4,6 @@
         <div class="col">
             <label for="tenkh" class="form-label">Tên khách hàng</label>
             <input type="text" class="form-control" id="tenkh" name="tenkh" required>
-
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
         </div>
         <div class="row">
             <div class="col">

@@ -27,7 +27,7 @@ $madon = $_POST['madon'];
                     <?= $sp->SanPham__Get_By_Id($item->masp)->tensp ?>
                 </td>
                 <td width="20%" style="padding: 5px; ">
-                    <?=
+                    <?php
                         print_r($szsp->SizeSp__Get_By_Id($item->masp)->tensize) ?>
                 </td>
                 <td width="20%" style="padding: 5px; text-align: center">

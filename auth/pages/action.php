@@ -95,6 +95,9 @@ if (isset($_GET['req'])) {
             if (isset($_SESSION['admin'])) {
                 unset($_SESSION['admin']);
             }
+            if (isset($_SESSION['nhanvien'])) {
+                unset($_SESSION['nhanvien']);
+            }
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
             }

@@ -45,6 +45,27 @@ $loaiSp__Get_All = $loaiSp->LoaiSp__Get_All();
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <!-- <div class="col">
+            <label>Chọn thương hiệu:</label>
+            <?php foreach ($thuongHieu__Get_All as $item) : ?>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input checkbox" type="hidden" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
+                <label class="size-option" for="math<?= $item->math ?>" onclick="selectSize(this)"><?= $item->tenth ?></label>
+        </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="col">
+            <label>Chọn loại sản phẩm:</label>
+            <?php foreach ($loaiSp__Get_All as $item) : ?>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input checkbox" type="hidden" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
+                    <label class="size-option" for="maloai<?= $item->maloai ?>" onclick="selectSize(this)"><?= $item->tenloai ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div> -->
+
+
         <div class="col">
             <label for="mota" class="form-label">Mô tả</label>
             <textarea class="form-control" id="mota" name="mota"></textarea>
@@ -241,5 +262,19 @@ $loaiSp__Get_All = $loaiSp->LoaiSp__Get_All();
         // Hiển thị ảnh preview cho tất cả các file được chọn
         displayImagePreview(files);
     });
+
+
+    function selectSize(label) {
+    // Lấy tất cả các labels có class size-option
+    var sizeOptions = document.querySelectorAll('.size-option');
+    
+    // Lặp qua tất cả các label và loại bỏ lớp 'selected'
+    sizeOptions.forEach(function(option) {
+        option.classList.remove('selected');
+    });
+
+    // Thêm lớp 'selected' cho label được chọn
+    label.classList.add('selected');
+}
     
 </script>

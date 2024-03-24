@@ -37,16 +37,23 @@ class KhachHangModel extends Database
         if($trangthai != -1){
             $obj = $this->connect->prepare("SELECT * FROM khachhang");
         }else{
-            $obj = $this->connect->prepare("SELECT * FROM khachhang WHERE trangthai =1");
+            $obj = $this->connect->prepare("SELECT * FROM khachhang");
         }
         $obj->setFetchMode(PDO::FETCH_OBJ);
         $obj->execute();
         return $obj->fetchAll();
     }
-    public function KhachHang__Add($tenkh, $email, $password, $trangthai)
+    // public function KhachHang__Add($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai)
+    // {
+    //     $obj = $this->connect->prepare("INSERT INTO khachhang(tenkh, gioitinh, ngaysinh, sodienthoai, diachi, email, password, trangthai) VALUES (?,?,?,?,?,?,?,?)");
+    //     $obj->execute(array($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai));
+    //     return $obj->rowCount();
+    // }
+
+    public function KhachHang__Add($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai)
     {
-        $obj = $this->connect->prepare("INSERT INTO khachhang(tenkh, email, password, trangthai) VALUES (?,?,?,?)");
-        $obj->execute(array($tenkh, $email, $password, $trangthai));
+        $obj = $this->connect->prepare("INSERT INTO khachhang(tenkh, gioitinh, ngaysinh, sodienthoai, diachi, email, password, trangthai) VALUES (?,?,?,?,?,?,?,?)");
+        $obj->execute(array($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai));
         return $obj->rowCount();
     }
 
