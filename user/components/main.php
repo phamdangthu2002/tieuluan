@@ -22,14 +22,11 @@ if (isset($_GET['pages']) && !isset($_GET['req'])) {
         case "loai-sp":
             require_once "pages/loai-sp/index.php";
             break;
-        case "danh-muc":
-            require_once "pages/danh-muc/index.php";
-            break;
         case "trang-loi":
             require_once "pages/trang-loi/index.php";
             break;
         default:
-            // echo "<script>location.href='index.php?pages=trang-loi'</script>";
+            echo "<script>location.href='index.php?pages=trang-loi'</script>";
             break;
     }
 } else {

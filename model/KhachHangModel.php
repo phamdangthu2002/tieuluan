@@ -50,6 +50,12 @@ class KhachHangModel extends Database
     //     return $obj->rowCount();
     // }
 
+    public function KhachHang__Dangky($tenkh, $email, $password, $trangthai)
+    {
+        $obj = $this->connect->prepare("INSERT INTO khachhang(tenkh, email, password, trangthai) VALUES (?,?,?,?)");
+        $obj->execute(array($tenkh,$email, $password, $trangthai));
+        return $obj->rowCount();
+    }
     public function KhachHang__Add($tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai)
     {
         $obj = $this->connect->prepare("INSERT INTO khachhang(tenkh, gioitinh, ngaysinh, sodienthoai, diachi, email, password, trangthai) VALUES (?,?,?,?,?,?,?,?)");

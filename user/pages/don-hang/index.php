@@ -119,6 +119,9 @@ $chiTietTrangThai__Get_By_Id_DH = $cttt->ChiTietTrangThai__Get_By_Id_DH($madon);
 </main>
 
 <script>
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | Đơn hàng";
+        })
     function view(madon) {
         $.ajax({
             url: './pages/don-hang/view.php',

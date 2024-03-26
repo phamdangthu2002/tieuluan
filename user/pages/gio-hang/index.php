@@ -189,6 +189,10 @@ $chiTietGioHang__Get_By_Id_Gh = $ctgh->ChiTietGioHang__Get_By_Id_GH(isset ($gioH
 </main>
 
 <script>
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | Giỏ hàng";
+        })
+
     function remove(mactgh) {
         Swal.fire({
             icon: 'question',

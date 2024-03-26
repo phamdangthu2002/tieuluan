@@ -347,6 +347,10 @@ $top = 0;
 
 
 <script>
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | Trang chủ";
+        })
+
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
             loop: true,

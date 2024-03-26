@@ -296,6 +296,9 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
     </div>
 </main>
 <script>
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | <?= $sp__Get_By_Id = $sp->SanPham__Get_By_Id($masp)->tensp?>";
+        })
     let masize = 18;
 
     function selectSize(size) {

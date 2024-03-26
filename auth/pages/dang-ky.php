@@ -48,5 +48,6 @@
             <input type="password" placeholder="Password" id="password" name="password" required />
         </div>
         <button type="submit" class="btn btn-primary">Đăng ký</button>
+        <div id="emailUsernameHelp" class="form-text">Bạn đã có tài khoản?<a href='../auth?pages=dang-nhap'>đăng nhập ngay</a></div>
     </form>
 </div>

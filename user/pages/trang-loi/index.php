@@ -61,6 +61,11 @@
             function retryPage() {
                 history.back();
             }
+
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | Lỗi tải trang";
+        })
+
         </script>
 
 </body>

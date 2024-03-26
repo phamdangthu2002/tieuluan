@@ -9,8 +9,8 @@ $loaiSp = new LoaiSpModel();
 $sp = new SanPhamModel();
 
 // Lấy số trang từ tham số truyền vào hoặc mặc định là 1
-$maloai = isset($_GET['maloai']) ? intval($_GET['maloai']) : 1;
-$page_number = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$maloai = isset ($_GET['maloai']) ? intval($_GET['maloai']) : 1;
+$page_number = isset ($_GET['page']) ? intval($_GET['page']) : 1;
 
 // Lấy danh sách truyện cho trang hiện tại
 $sanPham__Get_By_Loai_Paged = $sp->SanPham__Get_By_Loai_Paged($page_number, $maloai);
@@ -20,28 +20,42 @@ $sanPham__Get_By_Loai_Paged = $sp->SanPham__Get_By_Loai_Paged($page_number, $mal
     <div class="main-container">
         <div class="main-title-container">
             <a href="index.php?pages=danh-muc">
-                <div class="item-title color-2"><i class='bx bx-star bx-tada'></i>Sản phẩm loại <?=$loaiSp->LoaiSp__Get_By_Id($maloai)->tenloai?> </div>
+                <div class="item-title color-2"><i class='bx bx-star bx-tada'></i>Sản phẩm loại
+                    <?= $loaiSp->LoaiSp__Get_By_Id($maloai)->tenloai ?>
+                </div>
             </a>
         </div>
-        <div class="main-item-container">
-        <?php if (count($sanPham__Get_By_Loai_Paged) > 0) : ?>
-            <?php foreach ($sanPham__Get_By_Loai_Paged as $item) : ?>
-                <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-
-                    <a href="index.php?pages=chi-tiet&masp=<?= $item->masp ?>">
-                        <div class="manga-container">
-                            <div class="manga-thumbnail">
-                                <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh?>">
-                                <span class="manga-note background-2"><?= number_format($item->dongia) ?>đ <i class="bx bxs-star"></i></span>
+        <div class="row">
+            <?php if (count($sanPham__Get_By_Loai_Paged) > 0): ?>
+                <?php foreach ($sanPham__Get_By_Loai_Paged as $item): ?>
+                    <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
+                    <div class="col-md-3">
+                        <div class="cardt mb-5">
+                            <div class="manga-container">
+                                <div class="manga-thumbnail">
+                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
+                                    <span class="manga-note background-2">
+                                        <?= number_format($item->dongia) ?>đ <i class="bx bxs-star"></i>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="manga-title color-2"><?= $item->tensp ?></div>
+                            <div class="cardt-body">
+                                <h5 class="card-title">
+                                    <div class="manga-title color-2">
+                                        <?= $item->tensp ?>
+                                    </div>
+                                </h5>
+                                <p class="cardt-text">
+                                </p>
+                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
+                                    class="btn btn-primary">Mua Ngay</a>
+                            </div>
                         </div>
-                    </a>
-            <?php endforeach ?>
+                    </div>
+                <?php endforeach ?>
             <?php else: ?>
                 Không tìm thấy...
             <?php endif ?>
-
         </div>
     </div>
 
@@ -79,3 +93,8 @@ $sanPham__Get_By_Loai_Paged = $sp->SanPham__Get_By_Loai_Paged($page_number, $mal
     </div>
 
 </main>
+<script>
+        window.addEventListener('load', function () {
+            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | <?= $loaiSp->LoaiSp__Get_By_Id($maloai)->tenloai ?>";
+        })
+    </script>

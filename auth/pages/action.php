@@ -29,7 +29,7 @@ if (isset($_GET['req'])) {
             echo $password = $_POST['password'];
             $trangthai = 1;
             if ($kh->KhachHang__Check_Email($email)) {
-                $res += $kh->KhachHang__Add($tenkh,$email, $password, $trangthai);
+                $res += $kh->KhachHang__Dangky($tenkh,$email, $password, $trangthai);
             }
 
             if ($res != false) {
