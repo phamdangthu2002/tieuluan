@@ -93,14 +93,14 @@
 
 .main-center {
   margin-top: 50px;
-  margin-left: 155px;
   position: relative;
   overflow-x: hidden;
-  max-width: 1600px;
+  vertical-align: middle;
+  width: 100%;
   background-color: #e0f3f1;
   border-radius: 15px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 20px;
+  padding-right: 20px;
   justify-items: center;
 }
 
@@ -479,11 +479,16 @@ span.chapter-views {
 .manga-container__right {
   position: relative;
   overflow: hidden;
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: auto;
   border-radius: 1rem;
   border: 1px solid #dee2e6;
   margin: 0 0 0.8rem 2rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 176px;
+  margin: 4px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .manga-container__right:hover>.manga-title {
@@ -936,6 +941,7 @@ select#chapterSelect {
   padding-left: 5%;
   padding-right: 5%;
   justify-items: center;
+  max-width: 100%;
 }
 
 .manga-container__comming_soon {

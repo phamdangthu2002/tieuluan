@@ -25,7 +25,7 @@ $madon = isset($_POST['madon']) ? $_POST['madon'] : 0;
 $chiTietDonHang__Get_By_Id_DH = $ctdh->ChiTietDonHang__Get_By_Id_DH($madon);
 $chiTietTrangThai__Get_By_Id_DH = $cttt->ChiTietTrangThai__Get_By_Id_DH($madon);
 ?>
-
+<br><br>
 
 <main class="main">
     <div class="main-container">

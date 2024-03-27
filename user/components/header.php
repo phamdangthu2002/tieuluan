@@ -12,6 +12,19 @@ $loaiSp__Get_All = $loaisp->LoaiSp__Get_All();
 $thuongHieu__Get_All = $th->ThuongHieu__Get_All();
 ?>
 
+<style>
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.5s ease-in-out;
+    border-radius: 15px;
+    transform: translateX(-1.7px);
+}
+
+</style>
+
 <!-- Header -->
 <header class="p-3 text-white bg-dark">
     <div class="container">
@@ -111,7 +124,7 @@ $thuongHieu__Get_All = $th->ThuongHieu__Get_All();
                             data-popper-placement="bottom-start">
                             <li><a class="dropdown-item" href="../auth/pages/chinh-sua.php">Chỉnh sửa</a></li>
                             <li><a class="dropdown-item" href="index.php?pages=don-hang">Đơn hàng</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -140,3 +153,24 @@ $thuongHieu__Get_All = $th->ThuongHieu__Get_All();
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div> -->
+
+
+    <script>
+let lastScrollTop = 0;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Downscroll code
+        header.style.top = "-100px";
+    } else {
+        // Upscroll code
+        header.style.top = "0";
+    }
+
+    lastScrollTop = currentScroll;
+});
+
+    </script>

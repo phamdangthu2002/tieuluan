@@ -12,7 +12,7 @@ $sp__Get_Top_Random = $sp->SanPham__Get_Top_Random(6);
 
 $top = 0;
 ?>
-
+<br><br>
 <div class="banner">
     <div class="owl-carousel owl-theme">
         <div class="item">
@@ -121,7 +121,7 @@ $top = 0;
         <?php foreach ($sp__Get_Top_Updated_5 as $item): ?>
             <?php if (count($sp__Get_Top_Updated_5) > 0): ?>
                 <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                     <div class="col-md-2">
                         <div class="cardt mb-5">
                             <div class="manga-container">
@@ -178,7 +178,7 @@ $top = 0;
         <?php foreach ($sp__Get_Top_Updated_8 as $item): ?>
             <?php if (count($sp__Get_Top_Updated_8) > 0): ?>
                 <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                     <div class="col-md-3">
                         <div class="cardt mb-5">
                             <div class="manga-container">
@@ -224,6 +224,7 @@ $top = 0;
 
 
 
+
 <div class="main-center">
     <div class="main-title-container__right">
         <a href="index.php?pages=sp-top">
@@ -234,7 +235,55 @@ $top = 0;
         <?php foreach ($sp__Get_Top_Sale as $item): ?>
             <?php if (count($sp__Get_Top_Sale) > 0): ?>
                 <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                    <div class="col-md-3">
+                        <div class="cardt mb-5">
+                        <div class="manga-container__right" id="top_<?= $top++ ?>">
+                                <div class="manga-thumbnail">
+                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
+                                    <span class="manga-note background-7"> <b>Top
+                                            <?= $top ?>
+                                        </b> |
+                                        <?= $cm->formatThousand($item->luotmua) ?> lượt mua
+                                    </span>
+                                </div>
+                                <div class="blur"></div>
+                                <div class="manga-title color-3">
+                                    <?= $item->tensp ?>
+                                </div>
+                            </div>
+                            <div class="cardt-body">
+                                <h5 class="card-title">
+                                    <div class="manga-title color-3">
+                                        <?= $item->tensp ?>
+                                    </div>
+                                </h5>
+                                <p class="cardt-text">
+                                </p>
+                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
+                                    class="btn btn-primary">Mua Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif ?>
+            <?php endif ?>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+
+
+<!-- <div class="main-center">
+    <div class="main-title-container__right">
+        <a href="index.php?pages=sp-top">
+            <div class="item-title color-3"><i class='bx bx-star bx-tada'></i>TOP BÁN CHẠY</div>
+        </a>
+    </div>
+    <div class="row">
+        <?php foreach ($sp__Get_Top_Sale as $item): ?>
+            <?php if (count($sp__Get_Top_Sale) > 0): ?>
+                <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
+                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                     <div class="col-md-3">
                         <div class="cardt mb-5">
                             <div class="manga-container__right" id="top_<?= $top++ ?>">
@@ -269,7 +318,7 @@ $top = 0;
             <?php endif ?>
         <?php endforeach; ?>
     </div>
-</div>
+</div> -->
 
 
 
@@ -284,7 +333,7 @@ $top = 0;
         <?php foreach ($sp__Get_Top_Random as $item): ?>
             <?php if (count($sp__Get_Top_Random) > 0): ?>
                 <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                     <div class="col-md-2">
                         <div class="cardt mb-5">
                             <div class="manga-container">
@@ -344,12 +393,19 @@ $top = 0;
 
 
 
+<?php if (isset($_SESSION['user'])): ?>
+    <input type="hidden" value="<?php $ten = $_SESSION['user']->tenkh; ?>" />
+<?php endif; ?>
+
+
+
+
 
 
 <script>
-        window.addEventListener('load', function () {
-            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | Trang chủ";
-        })
+    window.addEventListener('load', function () {
+        document.getElementById('dynamicTitle').innerText = " <?= $ten ?>| Trang chủ";
+    })
 
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({

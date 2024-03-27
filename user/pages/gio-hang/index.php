@@ -17,7 +17,7 @@ $makh = isset ($_SESSION['user']->makh) ? $_SESSION['user']->makh : 0;
 $gioHang__Get_By_Id_Kh = $gh->GioHang__Get_By_Id_Kh($makh);
 $chiTietGioHang__Get_By_Id_Gh = $ctgh->ChiTietGioHang__Get_By_Id_GH(isset ($gioHang__Get_By_Id_Kh->magh) ? $gioHang__Get_By_Id_Kh->magh : 0);
 ?>
-
+<br><br><br>
 <main class="main">
     <div class="main-container">
         <section class="h-100 h-custom" style="background-color: #eee;">

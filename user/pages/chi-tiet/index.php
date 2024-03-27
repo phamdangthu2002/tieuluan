@@ -16,6 +16,7 @@ $sp__Get_Top_Sale = $sp->SanPham__Get_Top_Sale();
 $sp__Get_Top_Same = $sp->SanPham__Get_Top_Same($sp__Get_By_Id->math, $masp);
 $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_By_Id->masp);
 ?>
+<br><br>
 <main class="main">
     <div class="main-container">
         <div class="main-container__chitiet__left">

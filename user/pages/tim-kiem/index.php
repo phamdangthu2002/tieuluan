@@ -15,7 +15,7 @@ $page_number = isset ($_GET['page']) ? intval($_GET['page']) : 1;
 // Lấy danh sách truyện cho trang hiện tại
 $sanPham__Get_Ten_Sp_Paged = $sp->SanPham__Get_Ten_Sp_Paged($page_number, $tu_khoa);
 ?>
-
+<br><br><br>
 <main class="main">
     <div class="main-container">
         <div class="main-title-container">
