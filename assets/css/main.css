@@ -939,7 +939,7 @@ select#chapterSelect {
   padding: 2px;
   border-radius: 15px;
   padding-left: 5%;
-  padding-right: 5%;
+  /* padding-right: 5%; */
   justify-items: center;
   max-width: 100%;
 }
@@ -1369,3 +1369,4 @@ table {
   height: 500px;
   width: 200px;
 }
+

@@ -31,8 +31,8 @@ $loaiSp__Get_All = $loaiSp->LoaiSp__Get_All();
             <label>Chọn thương hiệu:</label>
             <?php foreach ($thuongHieu__Get_All as $item) : ?>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input checkbox" type="radio" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
-                    <label class="form-check-label" for="math<?= $item->math ?>"><?= $item->tenth ?></label>
+                    <input class="btn-check checkbox" type="radio" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
+                    <label class="btn btn-outline-primary" for="math<?= $item->math ?>"><?= $item->tenth ?></label>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -40,17 +40,17 @@ $loaiSp__Get_All = $loaiSp->LoaiSp__Get_All();
             <label>Chọn loại sản phẩm:</label>
             <?php foreach ($loaiSp__Get_All as $item) : ?>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input checkbox" type="radio" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
-                    <label class="form-check-label" for="maloai<?= $item->maloai ?>"><?= $item->tenloai ?></label>
+                    <input class="btn-check" type="radio" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
+                    <label class="btn btn-outline-primary" for="maloai<?= $item->maloai ?>"><?= $item->tenloai ?></label>
                 </div>
             <?php endforeach; ?>
         </div>
-
-        <!-- <div class="col">
+<!-- 
+        <div class="col">
             <label>Chọn thương hiệu:</label>
             <?php foreach ($thuongHieu__Get_All as $item) : ?>
                 <div class="form-check form-check-inline">
-                <input class="form-check-input checkbox" type="hidden" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
+                <input class="btn-check" type="radio" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
                 <label class="size-option" for="math<?= $item->math ?>" onclick="selectSize(this)"><?= $item->tenth ?></label>
         </div>
             <?php endforeach; ?>
@@ -59,7 +59,7 @@ $loaiSp__Get_All = $loaiSp->LoaiSp__Get_All();
             <label>Chọn loại sản phẩm:</label>
             <?php foreach ($loaiSp__Get_All as $item) : ?>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input checkbox" type="hidden" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
+                    <input class="btn-check" type="radio" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
                     <label class="size-option" for="maloai<?= $item->maloai ?>" onclick="selectSize(this)"><?= $item->tenloai ?></label>
                 </div>
             <?php endforeach; ?>

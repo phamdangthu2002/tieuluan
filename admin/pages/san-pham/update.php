@@ -39,7 +39,7 @@ $loaiSp__Get_All = $loaiSp->loaiSp__Get_All();
             <textarea class="form-control" id="mota_u" name="mota"><?= $sanPham__Get_By_Id->mota ?></textarea>
         </div>
 
-        <div class="col">
+        <!-- <div class="col">
             <label>Chọn thương hiệu:</label>
             <?php foreach ($thuongHieu__Get_All as $item) : ?>
                 <div class="form-check form-check-inline">
@@ -54,6 +54,25 @@ $loaiSp__Get_All = $loaiSp->loaiSp__Get_All();
                 <div class="form-check form-check-inline">
                     <input class="form-check-input checkbox" type="radio" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" <?= $item->maloai == $sanPham__Get_By_Id->maloai ? 'checked' : '' ?>>
                     <label class="form-check-label" for="maloai<?= $item->maloai ?>"><?= $item->tenloai ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div> -->
+
+        <div class="col">
+            <label>Chọn thương hiệu:</label>
+            <?php foreach ($thuongHieu__Get_All as $item) : ?>
+                <div class="form-check form-check-inline">
+                    <input class="btn-check checkbox" type="radio" id="math<?= $item->math ?>" value="<?= $item->math ?>" name="math" required>
+                    <label class="btn btn-outline-primary" for="math<?= $item->math ?>"><?= $item->tenth ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="col">
+            <label>Chọn loại sản phẩm:</label>
+            <?php foreach ($loaiSp__Get_All as $item) : ?>
+                <div class="form-check form-check-inline">
+                    <input class="btn-check" type="radio" id="maloai<?= $item->maloai ?>" value="<?= $item->maloai ?>" name="maloai" required>
+                    <label class="btn btn-outline-primary" for="maloai<?= $item->maloai ?>"><?= $item->tenloai ?></label>
                 </div>
             <?php endforeach; ?>
         </div>

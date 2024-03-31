@@ -116,8 +116,10 @@ header {
                         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show"
                             data-bs-toggle="dropdown" aria-expanded="true">
                             <!-- <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle btn btn-secondary"> -->
-                            <img width="40" height="50" class="rounded-circle btn btn-secondary"
-                                src="../assets/images/user.png">
+                            <!-- <img width="40" height="50" class="rounded-circle btn btn-secondary"
+                                src="../assets/images/user.png"> -->
+                                <img width="40" height="50" class="rounded-circle btn btn-secondary"
+                                src="../assets/images/personal.png">
                         </a>
                         <ul class="dropdown-menu text-small hidden"
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);"

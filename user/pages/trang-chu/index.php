@@ -393,9 +393,9 @@ $top = 0;
 
 
 
-<?php if (isset($_SESSION['user'])): ?>
+<!-- <?php if (isset($_SESSION['user'])): ?>
     <input type="hidden" value="<?php $ten = $_SESSION['user']->tenkh; ?>" />
-<?php endif; ?>
+<?php endif; ?> -->
 
 
 
@@ -404,7 +404,7 @@ $top = 0;
 
 <script>
     window.addEventListener('load', function () {
-        document.getElementById('dynamicTitle').innerText = " <?= $ten ?>| Trang chủ";
+        document.getElementById('dynamicTitle').innerText = "Trang chủ";
     })
 
     $(document).ready(function () {

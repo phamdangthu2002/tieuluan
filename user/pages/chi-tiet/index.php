@@ -266,7 +266,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
             </div>
         </div>
     </div>
-    <div class="main-container">
+    <!-- <div class="main-container">
         <div class="main-title-container">
             <a href="index.php?pages=sp-ngau-nhien">
                 <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
@@ -294,7 +294,54 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                 <?php endif ?>
             <?php endforeach ?>
         </div>
+    </div> -->
+
+
+    <div class="main-center">
+    <div class="main-title-container">
+        <a href="index.php?pages=sp-ngau-nhien">
+            <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
+        </a>
     </div>
+    <div class="row">
+    <?php foreach ($sp__Get_Top_Same as $item): ?>
+                <?php if (count($sp__Get_Top_Same) > 0): ?>
+                    <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
+                    <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                    <div class="col-md-2">
+                        <div class="cardt mb-5">
+                            <div class="manga-container">
+                                <div class="manga-thumbnail">
+                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
+                                    <span class="manga-note background-8">
+                                        <?= number_format($item->dongia) ?>đ</i>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="cardt-body">
+                                <h5 class="card-title">
+                                    <div class="manga-title color-8">
+                                        <?= $item->tensp ?>
+                                    </div>
+                                </h5>
+                                <p class="cardt-text">
+
+                                </p>
+                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
+                                    class="btn btn-primary">Mua Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif ?>
+            <?php endif ?>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+
+
+
 </main>
 <script>
         window.addEventListener('load', function () {
