@@ -6,7 +6,7 @@ $sp = new SanPhamModel();
 $anhSp = new AnhSpModel();
 $cm = new CommonModel();
 
-if (!isset ($_GET['masp'])) {
+if (!isset($_GET['masp'])) {
     return;
 }
 $masp = $_GET['masp'];
@@ -173,7 +173,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                                         <input type="radio" id="size7" name="size" value="7">
                                         7
                                     </label>
-                                    
+
                                     <label for="size8" class="size-option" onclick="selectSize('8')">
                                         <input type="radio" id="size8" name="size" value="8">
                                         8
@@ -196,8 +196,8 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                         <div class="sp-item-container__chitiet__left">
                             <div class="tab-group-1">
                                 <div class="sp-thich">
-                                    <?php if (isset ($_SESSION['user'])): ?>
-                                        <?php if ($sp__Get_By_Id->maloai == '1' || $sp__Get_By_Id->maloai == '2' || $sp__Get_By_Id->maloai == '3' || $sp__Get_By_Id->maloai == '4'|| $sp__Get_By_Id->maloai == '5' || $sp__Get_By_Id->maloai == '6'): ?>
+                                    <?php if (isset($_SESSION['user'])): ?>
+                                        <?php if ($sp__Get_By_Id->maloai == '1' || $sp__Get_By_Id->maloai == '2' || $sp__Get_By_Id->maloai == '3' || $sp__Get_By_Id->maloai == '4' || $sp__Get_By_Id->maloai == '5' || $sp__Get_By_Id->maloai == '6'): ?>
                                             <div class="btn btn-sm color-0 background-7" onclick="addCartSize('<?= $masp ?>')">
                                                 <i class="bx bx-cart"></i> Mua ngay
                                             </div>
@@ -243,7 +243,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                 <?php foreach ($sp__Get_Top_Sale as $item): ?>
                     <?php if (count($sp__Get_Top_Sale) > 0): ?>
                         <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                        <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                        <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                             <a href="index.php?pages=chi-tiet&masp=<?= $item->masp ?>">
                                 <div class="manga-container__right" id="top_<?= $top++ ?>">
                                     <div class="manga-thumbnail">
@@ -276,7 +276,7 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
             <?php foreach ($sp__Get_Top_Same as $item): ?>
                 <?php if (count($sp__Get_Top_Same) > 0): ?>
                     <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                    <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                    <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
                         <a href="index.php?pages=chi-tiet&masp=<?= $item->masp ?>">
                             <div class="manga-container">
                                 <div class="manga-thumbnail">
@@ -298,55 +298,57 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
 
 
     <div class="main-center">
-    <div class="main-title-container">
-        <a href="index.php?pages=sp-ngau-nhien">
-            <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
-        </a>
-    </div>
-    <div class="row">
-    <?php foreach ($sp__Get_Top_Same as $item): ?>
+        <div class="main-title-container">
+            <a href="index.php?pages=sp-ngau-nhien">
+                <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
+            </a>
+        </div>
+        <div class="row">
+            <?php foreach ($sp__Get_Top_Same as $item): ?>
                 <?php if (count($sp__Get_Top_Same) > 0): ?>
                     <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                    <?php if (isset ($anhSp__Get_By_Id_Sp_First->masp)): ?>
-                    <div class="col-md-2">
-                        <div class="cardt mb-5">
-                            <div class="manga-container">
-                                <div class="manga-thumbnail">
-                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
-                                    <span class="manga-note background-8">
-                                        <?= number_format($item->dongia) ?>đ</i>
-                                    </span>
-                                </div>
-
-                            </div>
-                            <div class="cardt-body">
-                                <h5 class="card-title">
-                                    <div class="manga-title color-8">
-                                        <?= $item->tensp ?>
+                    <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
+                        <div class="col-md-2">
+                            <div class="cardt mb-5">
+                                <div class="manga-container">
+                                    <div class="manga-thumbnail">
+                                        <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
+                                        <span class="manga-note background-8">
+                                            <?= number_format($item->dongia) ?>đ</i>
+                                        </span>
                                     </div>
-                                </h5>
-                                <p class="cardt-text">
 
-                                </p>
-                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
-                                    class="btn btn-primary">Mua Ngay</a>
+                                </div>
+                                <div class="cardt-body">
+                                    <h5 class="card-title">
+                                        <div class="manga-title color-8">
+                                            <?= $item->tensp ?>
+                                        </div>
+                                    </h5>
+                                    <p class="cardt-text">
+
+                                    </p>
+                                    <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
+                                        class="btn btn-primary">Mua Ngay</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif ?>
                 <?php endif ?>
-            <?php endif ?>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
+
+
 
 
 
 
 </main>
 <script>
-        window.addEventListener('load', function () {
-            document.getElementById('dynamicTitle').innerText = "<?=$_SESSION['user']->tenkh?> | <?= $sp__Get_By_Id = $sp->SanPham__Get_By_Id($masp)->tensp?>";
-        })
+    window.addEventListener('load', function () {
+        document.getElementById('dynamicTitle').innerText = "<?= $sp__Get_By_Id = $sp->SanPham__Get_By_Id($masp)->tensp ?>";
+    })
     let masize = 18;
 
     function selectSize(size) {
