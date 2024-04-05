@@ -133,13 +133,13 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
                             <div>
                                 <!-- code chọn size (S M L X XX XXX) -->
                                 <div>
-                                    <label for="sizeA" class="size-option" onclick="selectSize('A')">
-                                        <input type="radio" id="sizeA" name="size" value="A">
+                                    <label for="size1m" class="size-option" onclick="selectSize('1m')">
+                                        <input type="radio" id="size1m" name="size" value="1m">
                                         1m
                                     </label>
 
-                                    <label for="sizeB" class="size-option" onclick="selectSize('B')">
-                                        <input type="radio" id="sizeM" name="size" value="B">
+                                    <label for="size1,2m" class="size-option" onclick="selectSize('1,2m')">
+                                        <input type="radio" id="size1,2m" name="size" value="1,2m">
                                         1,2m
                                     </label>
                                 </div>
@@ -403,10 +403,10 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
             case '10':
                 masize = '15';
                 break;
-            case 'A':
+            case '1m':
                 masize = '16';
                 break;
-            case 'B':
+            case '1,2m':
                 masize = '17';
                 break;
             case 'Lon':

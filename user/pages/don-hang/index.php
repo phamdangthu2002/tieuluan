@@ -143,34 +143,37 @@ $chiTietTrangThai__Get_By_Id_DH = $cttt->ChiTietTrangThai__Get_By_Id_DH($madon);
     }
 
     function remove(madon) {
-        Swal.fire({
-            icon: 'question',
-            title: "Xác nhận",
-            text: "Bạn chắc chắn hủy đơn này?",
-            showCancelButton: true,
-            confirmButtonText: "OK",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: "./components/action.php",
-                    data: {
-                        action: "delete",
-                        madon: madon
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        if (response == true) {
-                            Swal.fire({
-                                icon: "success",
-                                title: "Đã xóa đơn thành công!",
-                                confirmButtonText: "OK",
-                            }).then((result) => {});
-                            location.href = "?pages=don-hang";
-                        }
-                    },
-                });
-            }
-        });
-    }
+    Swal.fire({
+        icon: 'question',
+        title: "Xác nhận",
+        text: "Bạn chắc chắn hủy đơn này?",
+        showCancelButton: true,
+        confirmButtonText: "OK",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: "./components/action.php",
+                data: {
+                    action: "delete",
+                    madon: madon
+                },
+                success: function(response) {
+                    console.log(response);
+                    if (response == true) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Đã xóa đơn thành công!",
+                            confirmButtonText: "OK",
+                        }).then((result) => {
+                            // Chuyển hướng trang sau khi đóng thông báo
+                            location.href = "index.php?pages=don-hang";
+                        });
+                    }
+                },
+            });
+        }
+    });
+}
+
 </script>

@@ -20,9 +20,11 @@ if (isset ($_POST['action'])) {
         case 'delete':
 
             $madon = $_POST['madon'];
+            $res = $ctdh->ChiTietDonHang__Delete_By_Id_Dh($madon);
             $res = $dh->DonHang__Delete($madon);
-
+            
             echo $res;
+            
             break;
 
         case 'checkout':

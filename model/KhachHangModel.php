@@ -125,4 +125,48 @@ class KhachHangModel extends Database
             return false;
         }
     }
+
+    public function Khachhang__UploadAvatar($id, $avatar)
+    {
+        try {
+            // Thư mục lưu trữ ảnh
+            $upload_dir = "uploads/";
+            if (!file_exists($upload_dir)) {
+                mkdir($upload_dir, 0755, true);
+            }
+
+            // Kiểm tra kích thước và loại tệp ảnh (ví dụ: chỉ chấp nhận định dạng hình ảnh phổ biến như JPEG, PNG, GIF)
+            $allowed_types = array('image/jpeg', 'image/png', 'image/gif');
+            if (!in_array($avatar['type'], $allowed_types)) {
+                throw new Exception("Loại tệp không hợp lệ. Chỉ chấp nhận JPEG, PNG, GIF.");
+            }
+            if ($avatar['size'] > 10 * 1024 * 1024) { // Giới hạn kích thước tệp ảnh là 10MB
+                throw new Exception("Kích thước tệp quá lớn. Vui lòng chọn một tệp nhỏ hơn.");
+            }
+
+            // Tên tệp ảnh mới (có thể sử dụng ID của người dùng làm tên tệp)
+            $avatar_filename = $id . "_" . time() . "_" . basename($avatar["name"]);
+            $avatar_path = $upload_dir . $avatar_filename;
+
+            // Lưu trữ tệp ảnh vào thư mục lưu trữ
+            if (move_uploaded_file($avatar["tmp_name"], $avatar_path)) {
+                // Cập nhật đường dẫn avatar trong cơ sở dữ liệu
+                $obj = $this->connect->prepare("UPDATE users SET avatar=? WHERE id=?");
+                $success = $obj->execute(array($avatar_path, $id));
+
+                if ($success) {
+                    // Trả về thông tin người dùng sau khi cập nhật avatar
+                    return $this->KhachHang__Get_By_Id($id);
+                } else {
+                    throw new Exception("Không thể cập nhật đường dẫn avatar.");
+                }
+            } else {
+                throw new Exception("Không thể lưu trữ tệp ảnh.");
+            }
+        } catch (Exception $e) {
+            // Xử lý lỗi nếu có
+            echo "Lỗi khi cập nhật avatar: " . $e->getMessage();
+            return null;
+        }
+    }
 }
