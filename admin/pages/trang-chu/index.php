@@ -36,7 +36,7 @@ $chiTietDonHang__Top_Ban_Chart = $ctdh->ChiThietDonHang__Top_Ban_Chart();
             <div class="main-data">
                 <h3 class="section-title">Top sản phẩm bán chạy</h3>
                 <div class="table-responsive">
-                    <table id="" class="table table-striped" style="width:100%">
+                    <table id="table_js" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Top</th>

@@ -29,7 +29,7 @@ if (isset($_GET['req'])) {
             echo $password = $_POST['password'];
             $trangthai = 1;
             if ($kh->KhachHang__Check_Email($email)) {
-                $res += $kh->KhachHang__Dangky($tenkh,$email, $password, $trangthai);
+                $res += $kh->KhachHang__Dangky($tenkh, $email, $password, $trangthai);
             }
 
             if ($res != false) {
@@ -61,34 +61,34 @@ if (isset($_GET['req'])) {
             }
             break;
 
-            case "chinh-sua":
-                $res = 0;
-                $makh = $_POST['makh'];
-                $tenkh = $_POST['tenkh'];
-                $gioitinh = $_POST['gioitinh'];
-                $ngaysinh = $_POST['ngaysinh'];
-                $sodienthoai = $_POST['sodienthoai'];
-                $diachi = $_POST['diachi'];
-                $trangthai = 1;
-                $email = $_POST['email'];
-    
-                $password_old = $_POST['password_old'];
-                $password_new = $_POST['password_new'];
-    
-                $password = $password_old;
-    
-                if ($password_new != $password_old && strlen($password_new) > 0) {
-                    $password = $password_new;
-                }
-                echo $res += $kh->KhachHang__Update($makh, $tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai);
-                if ($res != 0) {
-                    header('location: ../index.php?pages=dang-nhap&msg=update-success');
-                } else {
-                    header('location: ../index.php?pages=dang-nhap&msg=update-error');
-                }
-                break;
+        case "chinh-sua":
+            $res = 0;
+            $makh = $_POST['makh'];
+            $tenkh = $_POST['tenkh'];
+            $gioitinh = $_POST['gioitinh'];
+            $ngaysinh = $_POST['ngaysinh'];
+            $sodienthoai = $_POST['sodienthoai'];
+            $diachi = $_POST['diachi'];
+            $trangthai = 1;
+            $email = $_POST['email'];
 
-        case "dang-xuat":
+            $password_old = $_POST['password_old'];
+            $password_new = $_POST['password_new'];
+
+            $password = $password_old;
+
+            if ($password_new != $password_old && strlen($password_new) > 0) {
+                $password = $password_new;
+            }
+            echo $res += $kh->KhachHang__Update($makh, $tenkh, $gioitinh, $ngaysinh, $sodienthoai, $diachi, $email, $password, $trangthai);
+            if ($res != 0) {
+                header('location: ../index.php?pages=dang-nhap&msg=update-success');
+            } else {
+                header('location: ../index.php?pages=dang-nhap&msg=update-error');
+            }
+            break;
+
+        case "dang-xuat-admin":
             if (isset($_SESSION['manager'])) {
                 unset($_SESSION['manager']);
             }
@@ -98,11 +98,13 @@ if (isset($_GET['req'])) {
             if (isset($_SESSION['nhanvien'])) {
                 unset($_SESSION['nhanvien']);
             }
+            header('location:' . $_SERVER["HTTP_REFERER"]);
+            break;
+        case "dang-xuat-user":
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
             }
             header('location:' . $_SERVER["HTTP_REFERER"]);
-            // header('location:../../user/index.php');
             break;
         default:
             break;

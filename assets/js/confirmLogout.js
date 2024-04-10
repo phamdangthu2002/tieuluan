@@ -10,7 +10,7 @@ function confirmLogout() {
     }).then((result) => {
         // Nếu người dùng đồng ý, thực hiện đăng xuất
         if (result.isConfirmed) {
-            window.location.href = "../auth/pages/action.php?req=dang-xuat";
+            window.location.href = "../auth/pages/action.php?req=dang-xuat-admin";
         }
     });
 

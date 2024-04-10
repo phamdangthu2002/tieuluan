@@ -130,7 +130,7 @@ header {
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../auth/pages/action.php?req=dang-xuat">Sign out</a></li>
+                            <li><a class="dropdown-item" href="../auth/pages/action.php?req=dang-xuat-user">Sign out</a></li>
                         </ul>
                     </div>
                 <?php else: ?>

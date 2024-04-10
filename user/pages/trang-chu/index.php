@@ -60,56 +60,6 @@ $top = 0;
     </div>
 </div>
 
-<?php $products = [
-    [
-        'image' => '../assets/uploads/1/ss1_1706722837.png',
-        'title' => 'Product 1',
-        'description' => 'Description for product 1.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss1_1706723500.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss2_1706722837.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss3_1706722837.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss3_1706722837.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss3_1706722837.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    [
-        'image' => '../assets/uploads/1/ss3_1706722837.png',
-        'title' => 'Product 2',
-        'description' => 'Description for product 2.',
-        'link' => '#'
-    ],
-    // Add more products as needed
-]; ?>
-
-
-
-
-
 
 <div class="main-center">
     <div class="main-title-container">
@@ -167,7 +117,6 @@ $top = 0;
 </div>
 
 
-
 <div class="main-center">
     <div class="main-title-container__left">
         <a href="index.php?pages=sp-top">
@@ -222,9 +171,6 @@ $top = 0;
 </div>
 
 
-
-
-
 <div class="main-center">
     <div class="main-title-container__right">
         <a href="index.php?pages=sp-top">
@@ -271,58 +217,6 @@ $top = 0;
     </div>
 </div>
 
-
-
-<!-- <div class="main-center">
-    <div class="main-title-container__right">
-        <a href="index.php?pages=sp-top">
-            <div class="item-title color-3"><i class='bx bx-star bx-tada'></i>TOP BÁN CHẠY</div>
-        </a>
-    </div>
-    <div class="row">
-        <?php foreach ($sp__Get_Top_Sale as $item): ?>
-            <?php if (count($sp__Get_Top_Sale) > 0): ?>
-                <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
-                    <div class="col-md-3">
-                        <div class="cardt mb-5">
-                            <div class="manga-container__right" id="top_<?= $top++ ?>">
-                                <div class="manga-thumbnail">
-                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
-                                    <span class="manga-note background-7"> <b>Top
-                                            <?= $top ?>
-                                        </b> |
-                                        <?= $cm->formatThousand($item->luotmua) ?> lượt mua
-                                    </span>
-                                </div>
-                                <div class="blur"></div>
-                                <div class="manga-title color-3">
-                                    <?= $item->tensp ?>
-                                </div>
-                            </div>
-                            <div class="cardt-body">
-                                <h5 class="cardt-title">
-                                    <div class="manga-title color-3">
-                                        <?= $item->tensp ?>
-                                    </div>
-                                </h5>
-                                <p class="cardt-text">
-
-                                </p>
-                                <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
-                                    class="btn btn-primary">Mua Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif ?>
-            <?php endif ?>
-        <?php endforeach; ?>
-    </div>
-</div> -->
-
-
-
-
 <div class="main-center">
     <div class="main-title-container">
         <a href="index.php?pages=sp-ngau-nhien">
@@ -364,43 +258,6 @@ $top = 0;
         <?php endforeach; ?>
     </div>
 </div>
-
-
-
-
-
-
-
-<!-- 
-<div class="row">
-    <?php foreach ($products as $product): ?>
-        <div class="col-md-3">
-            <div class="cardt mb-5">
-                <img src="<?php echo $product['image']; ?>" class="cardt-img-top" alt="<?php echo $product['title']; ?>">
-                <div class="cardt-body">
-                    <h5 class="card-title">
-                        <?php echo $product['title']; ?>
-                    </h5>
-                    <p class="cardt-text">
-                        <?php echo $product['description']; ?>
-                    </p>
-                    <a href="<?php echo $product['link']; ?>" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-</div> -->
-
-
-
-<!-- <?php if (isset($_SESSION['user'])): ?>
-    <input type="hidden" value="<?php $ten = $_SESSION['user']->tenkh; ?>" />
-<?php endif; ?> -->
-
-
-
-
-
 
 <script>
     window.addEventListener('load', function () {

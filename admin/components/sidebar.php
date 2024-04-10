@@ -73,12 +73,30 @@
                     <i class='bx bxs-log-out-circle'></i>
                     <span class="text">Logout</span>
                 </a>
-                <script src="../assets/js/confirmLogout.js"></script>
-
-
+                <!-- <script src="../assets/js/confirmLogout.js"></script> -->
             </li>
         </ul>
     </div>
 
 
 <?php endif ?>
+
+<script>
+    function confirmLogout() {
+    Swal.fire({
+        title: 'Xác nhận đăng xuất',
+        text: 'Bạn có chắc chắn muốn đăng xuất không?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Đồng ý',
+        cancelButtonText: 'Hủy',
+    }).then((result) => {
+        // Nếu người dùng đồng ý, thực hiện đăng xuất
+        if (result.isConfirmed) {
+            window.location.href = "../auth/pages/action.php?req=dang-xuat-admin";
+        }
+    });
+
+    return false; // Ngăn chặn hành động mặc định của thẻ 'a'
+}
+</script>
