@@ -61,7 +61,25 @@ if (!isset($_SESSION['admin']) && !isset($_SESSION['manager']) && !isset($_SESSI
                     });
                 </script>";
                 break;
-
+                case 'deletesuccess':
+                    echo "<script>
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Delete khách hàng thành công!'
+                        });
+                    </script>";
+                    break;
             case 'error':
                 echo "<script>
                         const Toast = Swal.mixin({
@@ -81,7 +99,25 @@ if (!isset($_SESSION['admin']) && !isset($_SESSION['manager']) && !isset($_SESSI
                         });
                     </script>";
                 break;
-
+                case 'deleteerror':
+                    echo "<script>
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                                }
+                            });
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Xóa khách hàng không thành công!'
+                            });
+                        </script>";
+                    break;
             case 'warning':
                 echo "<script>
                         const Toast = Swal.mixin({

@@ -77,29 +77,15 @@ $khachHang__Get_All = $kh->KhachHang__Get_All(-1);
     };
 
     function delete_obj(makh) {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "m-2 btn btn-danger",
-                cancelButton: "m-2 btn btn-secondary"
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
-            title: "Xác nhận thao tác",
-            text: "Chắc chắn xóa!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Xóa!",
-            cancelButtonText: "Hủy!",
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                location.href = "pages/khach-hang/action.php?req=delete&makh=" + makh;
-            } else if (
-                result.dismiss === Swal.DismissReason.cancel
-            );
-        });
-    };
+    // Sử dụng phương thức POST để gửi yêu cầu đến action.php với req=delete và makh
+    $.post("pages/khach-hang/action.php?req=delete", {
+        makh: makh,
+    }, function(data, status) {
+        // Sau khi nhận được dữ liệu từ action.php, thay đổi nội dung của .main-form bằng dữ liệu đó
+        $(".main-form").html(data);
+    });
+}
+
     window.addEventListener('load', function() {
         document.getElementById('dynamicTitle').innerText = "ADMIN | Quản lý khách hàng";
     })

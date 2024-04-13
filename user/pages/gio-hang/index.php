@@ -194,36 +194,40 @@ $chiTietGioHang__Get_By_Id_Gh = $ctgh->ChiTietGioHang__Get_By_Id_GH(isset ($gioH
         })
 
     function remove(mactgh) {
-        Swal.fire({
-            icon: 'question',
-            title: "Xác nhận",
-            text: "Bạn chắc chắn xóa sản phẩm này khỏi giỏ hàng?",
-            showCancelButton: true,
-            confirmButtonText: "OK",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: "./components/action.php",
-                    data: {
-                        action: "remove",
-                        mactgh: mactgh
-                    },
-                    success: function (response) {
-                        console.log(response);
-                        if (response == true) {
-                            Swal.fire({
-                                icon: "success",
-                                title: "Sản phẩm đã xóa khỏi giỏ hàng thành công!",
-                                confirmButtonText: "OK",
-                            }).then((result) => { });
-                            location.href = "?pages=gio-hang";
-                        }
-                    },
-                });
-            }
-        });
-    }
+    Swal.fire({
+        icon: 'question',
+        title: "Xác nhận",
+        text: "Bạn chắc chắn xóa sản phẩm này khỏi giỏ hàng?",
+        showCancelButton: true,
+        confirmButtonText: "OK",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: "./components/action.php",
+                data: {
+                    action: "remove",
+                    mactgh: mactgh
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response == true) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Sản phẩm đã xóa khỏi giỏ hàng thành công!",
+                            confirmButtonText: "OK",
+                        }).then((result) => { 
+                            if (result.isConfirmed) {
+                                location.href = "?pages=gio-hang";
+                            }
+                        });
+                    }
+                },
+            });
+        }
+    });
+}
+
 
     function checkout() {
         $.ajax({

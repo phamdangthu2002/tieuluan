@@ -33,7 +33,7 @@ if (isset($_GET['req'])) {
             }
 
             if ($res != false) {
-                header('location: ../index.php?pages=dang-nhap');
+                header('location: ../index.php?pages=dang-nhap&msg=success');
             } else {
                 header('location: ../index.php?pages=dang-ky&msg=error');
             }

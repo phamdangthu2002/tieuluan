@@ -23,7 +23,8 @@ $chiTietDonHang__Top_Ban_Chart = $ctdh->ChiThietDonHang__Top_Ban_Chart();
     <div class="row section-container">
 
         <div class="col-6">
-            <input type="text" name="daterange" id="daterange" value="<?= date('m/d/Y', strtotime('-1 month')) ?> - <?= date('m/d/Y') ?>" class="form-control" />
+            <input type="text" name="daterange" id="daterange"
+                value="<?= date('m/d/Y', strtotime('-1 month')) ?> - <?= date('m/d/Y') ?>" class="form-control" />
             <div class="main-form">
                 <?php require 'add.php'; ?>
             </div>
@@ -46,7 +47,7 @@ $chiTietDonHang__Top_Ban_Chart = $ctdh->ChiThietDonHang__Top_Ban_Chart();
                         </thead>
                         <tbody>
                             <?php $count = 1 ?>
-                            <?php foreach ($chiTietDonHang__Top_Ban_Chart as $item) : ?>
+                            <?php foreach ($chiTietDonHang__Top_Ban_Chart as $item): ?>
                                 <tr>
                                     <td><?= $count++ ?></td>
                                     <td><?= $item->tensp ?></td>
@@ -104,11 +105,11 @@ $chiTietDonHang__Top_Ban_Chart = $ctdh->ChiThietDonHang__Top_Ban_Chart();
         data: barChartData,
         options: barChartOptions,
         plugins: [{
-            afterDraw: function(chart) {
+            afterDraw: function (chart) {
                 var ctx = chart.ctx;
                 var xAxis = chart.scales.x;
 
-                chart.data.labels.forEach(function(label, index) {
+                chart.data.labels.forEach(function (label, index) {
                     var x = xAxis.getPixelForValue(index);
                     var y = chart.scales.y.getPixelForValue(chart.data.datasets[0].data[index]);
                     var barWidth = chart.width / tensp.length;
@@ -124,3 +125,65 @@ $chiTietDonHang__Top_Ban_Chart = $ctdh->ChiThietDonHang__Top_Ban_Chart();
         }]
     });
 </script>
+
+<?php if (isset($_GET['msg'])) {
+    switch ($_GET['msg']) {
+        case 'deletesuccess':
+            echo "<script>
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Delete khách hàng thành công!'
+                        });
+                    </script>";
+            break;
+        case 'deleteerror':
+            echo "<script>
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                                }
+                            });
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Xóa khách hàng không thành công!'
+                            });
+                        </script>";
+            break;
+        case 'warning':
+            echo "<script>
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: 'warning',
+                            title: 'Cập nhật dữ liệu bị hủy!'
+                        });
+                    </script>";
+            break;
+    }
+} ?>

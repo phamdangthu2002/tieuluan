@@ -66,6 +66,15 @@ if (isset($_GET['req'])) {
                 header('location: ../../index.php?pages=khach-hang&msg=error');
             }
             break;
+        case "delete":
+            $res = 0;
+            $makh = $_POST['makh'];
+            $res += $kh->KhachHang__Delete($makh);
+            if ($res != false) {
+                header('location: ../../index.php?msg=deletesuccess');
+            } else {
+                header('location: ../../index.php?msg=deleteerror');
+            }
         default:
             break;
     }
