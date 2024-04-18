@@ -102,7 +102,7 @@ $donHang__Get_All = $dh->DonHang__Get_All();
                                                     <i class="bx bx-edit" aria-hidden="true"></i> Đơn đã giao
                                                 </button>
                                             <?php elseif ($cttt->ChiTietTrangThai__Check($item->madon, 7) != false): ?>
-                                                <!--  đơn được giao thành công -->
+                                                <!--  đơn Đã giao thất bại -->
                                                 <button type="button" class="btn btn-success btn-update"
                                                     onclick="return update_obj('<?= $item->madon ?>')">
                                                     <i class="bx bx-edit" aria-hidden="true"></i> Đã giao thất bại
