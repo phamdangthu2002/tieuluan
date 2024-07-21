@@ -18,6 +18,7 @@ session_start();
     <link rel="stylesheet" href="../assets/vendor/datatables/css/2_buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/css.css">
 
 </head>
 

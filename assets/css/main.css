@@ -1336,12 +1336,6 @@ table {
   --bs-btn-bg: #212529;
 }
 
-.banner {
-  background-color: #f6f6f6;
-  padding: 20px;
-  text-align: center;
-}
-
 .owl-carousel .owl-item img {
   max-width: 100%;
   height: auto;

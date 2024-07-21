@@ -17,7 +17,8 @@ $sp__Get_Top_Same = $sp->SanPham__Get_Top_Same($sp__Get_By_Id->math, $masp);
 $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_By_Id->masp);
 ?>
 <br><br>
-<main class="main">
+<br><br>
+<main class="container main">
     <div class="main-container">
         <div class="main-container__chitiet__left">
             <div class="main-title-container">
@@ -266,84 +267,58 @@ $anhSp__Get_By_Id_Sp_Not_First = $anhSp->AnhSp__Get_By_Id_Sp_Not_First($sp__Get_
             </div>
         </div>
     </div>
-    <!-- <div class="main-container">
-        <div class="main-title-container">
-            <a href="index.php?pages=sp-ngau-nhien">
-                <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
-            </a>
-        </div>
-        <div class="main-item-container">
-            <?php foreach ($sp__Get_Top_Same as $item): ?>
-                <?php if (count($sp__Get_Top_Same) > 0): ?>
-                    <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
-                    <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
-                        <a href="index.php?pages=chi-tiet&masp=<?= $item->masp ?>">
-                            <div class="manga-container">
-                                <div class="manga-thumbnail">
-                                    <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
-                                    <span class="manga-note background-8">
-                                        <?= number_format($item->dongia) ?>đ</i>
-                                    </span>
-                                </div>
-                                <div class="manga-title color-8">
-                                    <?= $item->tensp ?>
-                                </div>
-                            </div>
-                        </a>
-                    <?php endif ?>
-                <?php endif ?>
-            <?php endforeach ?>
-        </div>
-    </div> -->
 
 
-    <div class="main-center">
-        <div class="main-title-container">
-            <a href="index.php?pages=sp-ngau-nhien">
-                <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
-            </a>
+
+    <div class="container">
+        <div class="main-center mb-5">
+            <div class="main-title-container">
+                <a href="index.php?pages=sp-ngau-nhien">
+                    <div class="item-title color-8"><i class='bx bx-book-reader'></i>SẢN PHẨM CÙNG THƯƠNG HIỆU</div>
+                </a>
+            </div>
         </div>
         <div class="row">
             <?php foreach ($sp__Get_Top_Same as $item): ?>
                 <?php if (count($sp__Get_Top_Same) > 0): ?>
                     <?php $anhSp__Get_By_Id_Sp_First = $anhSp->AnhSp__Get_By_Id_Sp_First($item->masp); ?>
                     <?php if (isset($anhSp__Get_By_Id_Sp_First->masp)): ?>
-                        <div class="col-md-2">
-                            <div class="cardt mb-5">
-                                <div class="manga-container">
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
+                            <div class="product-item">
+                                <div class="manga-container__right">
                                     <div class="manga-thumbnail">
                                         <img src="../assets/<?= $anhSp__Get_By_Id_Sp_First->hinhanh ?>">
                                         <span class="manga-note background-8">
                                             <?= number_format($item->dongia) ?>đ</i>
                                         </span>
                                     </div>
-
                                 </div>
-                                <div class="cardt-body">
-                                    <h5 class="card-title">
-                                        <div class="manga-title color-8">
-                                            <?= $item->tensp ?>
-                                        </div>
-                                    </h5>
-                                    <p class="cardt-text">
+                                <div class="product-info">
 
-                                    </p>
+                                    <h3><?= $item->tensp ?></h3>
+                                    <p class="price"><?= $item->dongia ?> VND</p>
                                     <a href="index.php?pages=chi-tiet&masp=<?= $anhSp__Get_By_Id_Sp_First->masp ?>"
-                                        class="btn btn-primary">Mua Ngay</a>
+                                        class="btn btn-outline-dark">Xem chi tiết</a>
                                 </div>
                             </div>
                         </div>
+                    <?php else: ?>
+                        <a href="index.php?pages=chi-tiet&masp=<?= $item->masp ?>">
+                            <div class="manga-container">
+                                <div class="manga-thumbnail">
+                                    <img src="../assets/<?= $item->hinhanh ?>">
+                                    <span class="manga-note background-1">Đang cập nhật... <i class="bx bxs-star"></i></span>
+                                </div>
+                                <div class="manga-title color-1">
+                                    <?= $item->tensp ?>
+                                </div>
+                            </div>
+                        </a>
                     <?php endif ?>
                 <?php endif ?>
             <?php endforeach; ?>
         </div>
     </div>
-
-
-
-
-
-
 </main>
 <script>
     window.addEventListener('load', function () {

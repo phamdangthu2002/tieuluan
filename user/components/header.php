@@ -120,8 +120,7 @@ $thuongHieu__Get_All = $th->ThuongHieu__Get_All();
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#"
-                                    onclick="confirmLogout()">Sign out</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="confirmLogout()">Sign out</a></li>
                         </ul>
                     </div>
                 <?php else: ?>
