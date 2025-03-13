@@ -4,8 +4,6 @@
   <br>
   email: phamdangthu2002@gmail.
   <br>
-  facebook: https://www.facebook.com/pdtthu
+  facebook: https://www.facebook.com/pdt.thu
 
-# banhang
-# banhang
 # tieuluan-banhang
